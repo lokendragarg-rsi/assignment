@@ -1,0 +1,43 @@
+<div class="storyitem">
+  <h2>{{title}}</h2>
+  <div id="pause" class="d-flex align-items-center justify-content-center" *ngIf="loading">
+    <div id="spinner"></div>
+  </div>
+
+  <div class="mat-elevation-z8">
+
+    <mat-form-field style="width:100%">
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. title" #input>
+    </mat-form-field>
+
+    <table mat-table [dataSource]="dataSource">
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef> Title </th>
+        <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="url">
+        <th mat-header-cell *matHeaderCellDef> Url </th>
+        <td mat-cell *matCellDef="let element"><a href="{{element.url}}" target="_blank">{{element.url}}</a></td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                   showFirstLastButtons
+                   aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>
+</div>
+
