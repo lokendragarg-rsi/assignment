@@ -46,6 +46,12 @@ export class AppComponent implements OnInit {
         this.dataSource.paginator = this.paginator;
         this.loading = false;
       }
+      else {
+        this.loading = false;
+        this.ELEMENT_DATA = [];
+        this.dataSource = new MatTableDataSource<StoryTableElement>(this.ELEMENT_DATA);
+        this.dataSource.paginator = this.paginator;
+      }
     }, (err) => {
       this.loading = false;
     });
