@@ -26,7 +26,7 @@
     <ProjectReference Include="..\assignment.client\assignment.client.esproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
-    <ProjectReference Include="..\Assignment.Core\Assignment.Core.csproj" />
+    <ProjectReference Include="..\Assignment.Framework\Assignment.Framework.csproj" />
     <ProjectReference Include="..\Assignment.Services\Assignment.Services.csproj" />
   </ItemGroup>
 

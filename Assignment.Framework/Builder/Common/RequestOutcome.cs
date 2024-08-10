@@ -1,4 +1,5 @@
-﻿namespace Assignment.Core;
+﻿
+namespace Assignment.Framework.Builder.Common;
 
 public class RequestOutcome<T>
 {
@@ -8,3 +9,4 @@ public class RequestOutcome<T>
     public string? Message { get; set; }
     public string? ErrorMessage { get; set; }
 }
+
