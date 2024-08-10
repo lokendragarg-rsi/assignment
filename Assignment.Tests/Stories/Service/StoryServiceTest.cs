@@ -24,5 +24,23 @@ public sealed class StoryServiceTest
             //Then
             result.Should().BeGreaterThan(0);
         }
+
+        /// <summary>
+        /// Should return null if story items less than orequal to zero
+        /// </summary>
+        [Fact]
+        public async Task Should_Return_Null_If_Story_Items_Less_Than_OrEqual_To_Zero()
+        {
+            //Given
+            var StoryService = Substitute.For<IStoryService>();
+            StoryService sut = new StoryServiceFixture().WithStoryService(StoryService);
+            //When
+
+            //When
+            var result = (await sut.GetStoryDetails(-1)).Count();
+
+            //Then
+            result.Should().Be(0);
+        }
     }
 }

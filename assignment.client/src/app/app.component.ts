@@ -17,7 +17,7 @@ export interface StoryTableElement {
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit, AfterViewInit {
+export class AppComponent implements OnInit {
   loading: boolean = true;
   public ELEMENT_DATA: StoryTableElement[] = [];
   displayedColumns: string[] = ['position', 'title', 'url'];
@@ -29,10 +29,6 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.getStoryDetails();
-  }
-
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
   }
 
   getStoryDetails() {
@@ -61,5 +57,9 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   title = 'Story';
+
+  getTitle() {
+    return this.title;
+  }
 }
 

@@ -8,7 +8,7 @@
 
     <mat-form-field style="width:100%">
       <mat-label>Filter</mat-label>
-      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. title" #input>
+      <input matInput (keyup)="applyFilter($event)" placeholder="title" #input>
     </mat-form-field>
 
     <table mat-table [dataSource]="dataSource">

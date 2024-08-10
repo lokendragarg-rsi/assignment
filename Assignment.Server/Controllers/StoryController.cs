@@ -57,11 +57,11 @@ namespace Assignment.Server.Controllers
                     //setting cache entries
                     _memoryCache.Set(cacheKey, storyDetails, cacheExpiryOptions);
                 }
-                return Ok(new RequestOutcome<List<StoryDetailDto>> { IsSuccess = true, Message = "Success", Data = storyDetails });
+                return Ok(new RequestOutcome<List<StoryDetailDto>> { IsSuccess = true, Message = "Success", Data = storyDetails, StatusCode = 200 });
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return Ok(new RequestOutcome<string> { IsSuccess = false, Message = ex.Message.ToString(), Data = null, StatusCode = 400 });
             }
         }
 

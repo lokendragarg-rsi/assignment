@@ -1,0 +1,10 @@
+{
+"SpaProxyServer": {
+"ServerUrl": "https://localhost:4200",
+"RedirectUrl": "",
+"LaunchCommand": "npm start",
+"WorkingDirectory": "D:\\Rsystems_Project\\Assignment_GIT\\Assignment.Server\\..\\assignment.client",
+"MaxTimeoutInSeconds": "120",
+"KeepRunning": "false"
+}
+}

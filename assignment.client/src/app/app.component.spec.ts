@@ -2,6 +2,9 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
+import { MatButtonHarness } from '@angular/material/button/testing';
+import { HarnessLoader } from '@angular/cdk/testing';
+import { By } from '@angular/platform-browser';
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -41,4 +44,22 @@ describe('AppComponent', () => {
     req.flush(mockStories);
     expect(mockStories.length).toEqual(2);
   });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it(`should return app title`, () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    let result = app.getTitle();
+    expect(result).toEqual('Story');
+  });
+
+  it('should render filter input title', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('.mat-mdc-input-element')?.attributes[2].textContent).toContain('title');
+  });
+
 });
